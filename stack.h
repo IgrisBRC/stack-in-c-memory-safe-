@@ -1,8 +1,6 @@
-
+#pragma once
 #include <stdbool.h>
 #include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 struct Node {
   int val;
@@ -15,5 +13,5 @@ int pop(struct Node *);
 void print(struct Node *);
 bool is_empty(struct Node *);
 int peek(struct Node *);
-void new(struct Node *);
+void init(struct Node *);
 

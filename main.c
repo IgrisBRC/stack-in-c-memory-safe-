@@ -1,8 +1,9 @@
+#include <stdlib.h>
 #include "stack.h"
 
 int main() {
   struct Node *head = malloc(sizeof(struct Node));
-  new (head);
+  init (head);
 
     push(head, 69);
     push(head, 69);

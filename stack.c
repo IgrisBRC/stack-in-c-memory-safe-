@@ -1,6 +1,8 @@
 #include "stack.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-void new(struct Node *head) {
+void init(struct Node *head) {
   head->val = 0;
   head->next = NULL;
 };
