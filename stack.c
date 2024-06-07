@@ -1,11 +1,8 @@
 #include "stack.h"
 
-void new(struct Node* head) {
-  struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
-  new_node->val = 0;
-  new_node->next = NULL;
-
-  head = new_node;
+void new(struct Node *head) {
+  head->val = 0;
+  head->next = NULL;
 };
 
 void free_er(struct Node *head) {

@@ -16,3 +16,4 @@ void print(struct Node *);
 bool is_empty(struct Node *);
 int peek(struct Node *);
 void new(struct Node *);
+
