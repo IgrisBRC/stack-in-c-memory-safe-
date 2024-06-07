@@ -1,20 +1,15 @@
 #include "stack.h"
 
 int main() {
-  struct Node head = init();
+  struct Node *head = init();
 
-  int num = 420;
+  push(head,69);
+  push(head,69);
+  push(head,69);
+  push(head,69);
+  push(head,69);
+  push(head,69);
 
-  push(&head,num);
-  push(&head,num);
-  push(&head,num);
-  push(&head,num);
-  push(&head,num);
-  push(&head,num);
-  push(&head,num);
-  push(&head,num);
-  push(&head,num);
-
-  free_er(&head);
+  free_er(head);
 }
 
