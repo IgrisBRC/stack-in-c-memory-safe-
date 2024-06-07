@@ -6,7 +6,6 @@
 
 struct Node {
   int val;
-  uint8_t size;
   struct Node *next;
 };
 
@@ -16,5 +15,4 @@ int pop(struct Node *);
 void print(struct Node *);
 bool is_empty(struct Node *);
 int peek(struct Node *);
-struct Node *init();
-
+void new(struct Node *);

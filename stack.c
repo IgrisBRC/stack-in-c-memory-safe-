@@ -1,12 +1,11 @@
 #include "stack.h"
 
-struct Node *init() {
+void new(struct Node* head) {
   struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
   new_node->val = 0;
-  new_node->size = 0;
   new_node->next = NULL;
 
-  return new_node;
+  head = new_node;
 };
 
 void free_er(struct Node *head) {
@@ -26,7 +25,6 @@ void push(struct Node *head, int val) {
   itr->next = (struct Node *)malloc(sizeof(struct Node));
   itr = itr->next;
   itr->val = val;
-  head->size += 1;
 }
 
 int pop(struct Node *head) {
@@ -45,7 +43,6 @@ int pop(struct Node *head) {
   int res = itr->next->val;
   free(itr->next);
   itr->next = NULL;
-  head->size -= 1;
   return res;
 }
 
