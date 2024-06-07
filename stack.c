@@ -2,67 +2,47 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void init(struct Node *head) {
-  head->val = 0;
-  head->next = NULL;
-};
+void init(struct Stack *stack) { stack->top = NULL; };
 
-void free_er(struct Node *head) {
-  if (head) {
-    free_er(head->next);
-    free(head);
-  }
+void push(struct Stack *stack, int val) {
+  struct Node *new_node = malloc(sizeof(struct Node));
+  new_node->val = val;
+  new_node->next = stack->top;
+
+  stack->top = new_node;
 }
 
-void push(struct Node *head, int val) {
-  struct Node *itr = head;
-
-  while (itr->next) {
-    itr = itr->next;
-  }
-
-  itr->next = (struct Node *)malloc(sizeof(struct Node));
-  itr = itr->next;
-  itr->val = val;
-}
-
-int pop(struct Node *head) {
-
-  if (!head->next) {
-    printf("underflow\n");
+int pop(struct Stack *stack) {
+  if (!stack->top) {
+    printf("dunderflow");
     exit(2);
   }
 
-  struct Node *itr = head;
+  struct Node *tmp = stack->top;
+  int val = stack->top->val;
+  stack->top = stack->top->next;
+  free(tmp);
 
-  while (itr->next->next) {
-    itr = itr->next;
-  }
-
-  int res = itr->next->val;
-  free(itr->next);
-  itr->next = NULL;
-  return res;
+  return val;
 }
 
-int peek(struct Node *head) {
-  struct Node *itr = head;
+void free_stack(struct Stack *stack) { free_for_me(stack->top); }
 
-  while (itr->next) {
-    itr = itr->next;
+void free_for_me(struct Node *node) {
+  if (node) {
+    free_for_me(node->next);
+    free(node);
   }
-
-  return itr->val;
 }
 
-bool is_empty(struct Node *head) { return head->next; }
-
-void print(struct Node *head) {
-  struct Node *itr = head->next;
-
-  while (itr) {
-    printf("%d -> ", itr->val);
-    itr = itr->next;
-  }
+void print(struct Stack *stack) {
+  print_for_me(stack->top);
   printf("None\n");
+}
+
+void print_for_me(struct Node *node) {
+  if (node) {
+    print_for_me(node->next);
+    printf("%d -> ", node->val);
+  }
 }

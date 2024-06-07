@@ -2,16 +2,13 @@
 #include <stdlib.h>
 
 int main() {
-  struct Node *head = malloc(sizeof(struct Node));
-  init(head);
+  struct Stack *stack = malloc(sizeof(struct Stack));
+  init(stack);
 
-  push(head, 69);
-  push(head, 69);
-  push(head, 69);
-  push(head, 69);
-  push(head, 69);
-  push(head, 69);
+    //use the stack
 
-  print(head);
-  free_er(head);
+  print(stack);
+
+  free_stack(stack);
+  free(stack);
 }
